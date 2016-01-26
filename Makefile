@@ -9,7 +9,7 @@ PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/upstre
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
-PATH_FLAGS = --prefix=/usr --infodir=/tmp/trash
+PATH_FLAGS = --prefix=/usr --bindir=/usr/bin --sbindir=/usr/bin --sysconfdir=/etc
 CFLAGS = -static -static-libgcc -Wl,-static
 
 .PHONY : default submodule source deps manual container build version push local
@@ -32,7 +32,7 @@ build: submodule
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS)
 	cd $(BUILD_DIR) && make
 	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install
-	rm -rf $(RELEASE_DIR)/tmp
+	rm -rf $(RELEASE_DIR)/usr/bin/nologin
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/COPYING $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
