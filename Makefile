@@ -33,6 +33,8 @@ build: submodule
 	cd $(BUILD_DIR) && make
 	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install
 	rm -rf $(RELEASE_DIR)/usr/{bin/nologin,usr/share/man/man8/nologin.8}
+	mv $(RELEASE_DIR)/usr/sbin/* $(RELEASE_DIR)/usr/bin
+	rm -rf $(RELEASE_DIR)/usr/sbin
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/COPYING $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
