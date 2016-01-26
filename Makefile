@@ -32,7 +32,7 @@ build: submodule
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS)
 	cd $(BUILD_DIR) && make
 	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install
-	rm -rf $(RELEASE_DIR)/usr/{bin/nologin,usr/share/man/man8/nologin.8}
+	rm -rf $(RELEASE_DIR)/usr/{bin/nologin,share/man/man8/nologin.8}
 	mv $(RELEASE_DIR)/usr/sbin/* $(RELEASE_DIR)/usr/bin
 	rm -rf $(RELEASE_DIR)/usr/sbin
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
