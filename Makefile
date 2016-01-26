@@ -5,7 +5,7 @@ BUILD_DIR = /tmp/$(PACKAGE)-build
 RELEASE_DIR = /tmp/$(PACKAGE)-release
 RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
 
-PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/v//')
+PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/upstream\///')
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
