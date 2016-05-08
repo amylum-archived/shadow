@@ -10,7 +10,7 @@ PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
 PATH_FLAGS = --prefix=/usr --bindir=/usr/bin --sbindir=/usr/bin --sysconfdir=/etc
-CFLAGS = -static -static-libgcc -Wl,-static
+CFLAGS =
 
 .PHONY : default submodule source deps manual container build version push local
 
