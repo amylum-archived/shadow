@@ -1,0 +1,29 @@
+name 'shadow'
+org 'amylum'
+
+licenses 'COPYING'
+
+configure_flags(
+  prefix: '/usr',
+  bindir: '/usr/bin',
+  sbindir: '/usr/bin',
+  sysconfdir: '/etc'
+)
+
+harden
+
+build do
+  run 'autoreconf -i'
+  configure
+  make
+  install
+  %w(nologin login su chfn chsh).each { |x| rm 'usr/bin/' + x }
+  %w(chfn.1 chsh.1 su.1 login.1).each { |x| rm 'usr/share/man/man1/' + x }
+  rm 'usr/share/man/man8/nologin.8'
+  run "mv #{releasedir}/usr/sbin/* #{releasedir}/usr/bin"
+  rm 'usr/sbin'
+end
+
+test do
+  # TODO: add tests
+end
