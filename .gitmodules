@@ -1,6 +1,6 @@
 [submodule "upstream"]
 	path = upstream
-	url = git://anonscm.debian.org/pkg-shadow/shadow.git
+	url = https://github.com/shadow-maint/shadow.git
 [submodule "meta"]
 	path = meta
 	url = git://github.com/amylum/pkgforge-helper
