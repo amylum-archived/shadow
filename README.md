@@ -1,7 +1,7 @@
 shadow
 ==========
 
-[![Build Status](https://img.shields.io/circleci/project/amylum/shadow/master.svg)](https://circleci.com/gh/amylum/shadow)
+[![Build Status](https://img.shields.io/travis/com/amylum/shadow.svg)](https://travis-ci.com/amylum/shadow)
 [![GitHub release](https://img.shields.io/github/release/amylum/shadow.svg)](https://github.com/amylum/shadow/releases)
 [![BSD Licensed](http://img.shields.io/badge/license-BSD-green.svg)](https://tldrlegal.com/license/bsd-3-clause-license-(revised))
 
